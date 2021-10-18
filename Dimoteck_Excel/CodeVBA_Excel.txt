@@ -1,0 +1,14 @@
+Private Sub Worksheet_Change(ByVal Target As Excel.Range)
+   If Target.Column = "35" Then
+    RowSel = Target.Row
+    If WorksheetFunction.And(Target.Value = "Oui") Then
+        DernLigne = Workbooks("Registre Gestion 2019").Worksheets("Facture").Range("A" & Rows.Count).End(xlUp).Row
+        Cells(RowSel, 33) = Workbooks("Registre Gestion 2019").Worksheets("Facture").Cells(DernLigne, 1)
+        Workbooks("Registre Gestion 2019").Worksheets("Facture").Cells(DernLigne, 5) = Cells(RowSel, 14)
+        Workbooks("Registre Gestion 2019").Worksheets("Facture").Cells(DernLigne, 9) = Cells(RowSel, 32)
+        Workbooks("Registre Gestion 2019").Worksheets("Facture").Cells(DernLigne, 15) = Cells(RowSel, 34)
+        Workbooks("Registre Gestion 2019").Worksheets("Facture").Cells(DernLigne, 18) = Cells(RowSel, 19)
+    End If
+   End If
+End Sub
+
